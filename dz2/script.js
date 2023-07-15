@@ -13,4 +13,4 @@ console.log(`Температура в Фаренгейтах = ${temperatureInD
 
 const userName = "Vera";
 const admin = userName;
-console.log(`Name = ${userName}, Admin = ${admin}`);
+console.log(`Admin = ${admin}`);
