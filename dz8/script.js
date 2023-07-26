@@ -11,7 +11,7 @@ for (let i = 0; i <= 10; i++) {
     if (i === 0) {
         console.log(`${i} - это ноль`);
     }
-    if (i % 2 === 0) {
+    else if (i % 2 === 0) {
         console.log(`${i} - четное число`);
     } else {
         console.log(`${i} - нечетное число`);
@@ -40,7 +40,11 @@ for (let i = 0; i <= 5; i++) {
 console.log(arrayThree);
 console.log(`Сумму элементов этого массива = ${summaNumberArray(arrayThree)}`);
 console.log(`Минимальное число этого массива = ${minNumberArray(arrayThree)}`);
-console.log(numberSearch(arrayThree, 3));
+const searcNumber = 3;
+
+if (numberSearch(arrayThree, searcNumber) === true) {
+    console.log(`В этом массиве число ${searcNumber} - есть`);
+} else console.log(`В этом массиве число ${searcNumber} - нет`);
 
 function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -66,10 +70,10 @@ function minNumberArray(array) {
 function numberSearch(array, num) {
     for (let i = 0; i < array.length; i++) {
         if (array[i] === num) {
-            console.log(`В этом массиве есть число ${num} есть`);
-            break;
+            return true;
         }
     }
+    return false;
 }
 
 // *Необязательное задание. *
@@ -80,3 +84,14 @@ function numberSearch(array, num) {
 // xxx
 // xxxx
 // xxxxx
+
+const arrFour = [];
+let count = '';
+let row = 1;
+
+for (let i = 0; i < 25; i++) {
+    count += 'x';
+    arrFour[i] = count;
+    console.log(`${arrFour[i]} - ${row}`); 
+    row++;
+}
