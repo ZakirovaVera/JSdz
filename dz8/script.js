@@ -42,9 +42,11 @@ console.log(`Сумму элементов этого массива = ${summaNu
 console.log(`Минимальное число этого массива = ${minNumberArray(arrayThree)}`);
 const searcNumber = 3;
 
-if (numberSearch(arrayThree, searcNumber) === true) {
-    console.log(`В этом массиве число ${searcNumber} - есть`);
-} else console.log(`В этом массиве число ${searcNumber} - нет`);
+// if (numberSearch(arrayThree, searcNumber)) {
+//     console.log(`В этом массиве число ${searcNumber} - есть`);
+// } else console.log(`В этом массиве число ${searcNumber} - нет`);
+
+(numberSearch(arrayThree, searcNumber)) ? console.log(`В этом массиве число ${searcNumber} - есть`) : console.log(`В этом массиве число ${searcNumber} - нет`)
 
 function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
