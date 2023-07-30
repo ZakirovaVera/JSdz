@@ -89,41 +89,82 @@ console.log(products);
 // 1. Необходимо вывести в консоль массив продуктов в котором есть хоть одна фотография используя метод filter.Исходные данные - массив products.
 // 2. Необходимо отсортировать массив products используя метод sort по цене, начиная с самой маленькой, заканчивая самой большой ценой, после чего вывести отсортированный массив в консоль.
 
-// const products = [
-//     {
-//         id: 3,
-//         price: 127,
-//         photos: [
-//             "1.jpg",
-//             "2.jpg",
-//         ],
-//     },
-//     {
-//         id: 5,
-//         price: 499,
-//         photos: [],
-//     },
-//     {
-//         id: 10,
-//         price: 26,
-//         photos: [
-//             "3.jpg",
-//         ],
-//     },
-//     {
-//         id: 8,
-//         price: 78,
-//     },
-// ];
+console.log('Задача 4:');
 
-// []()
-// []()
+const productsTaskFour = [
+    {
+        id: 3,
+        price: 127,
+        photos: [
+            "1.jpg",
+            "2.jpg",
+        ],
+    },
+    {
+        id: 5,
+        price: 499,
+        photos: [],
+    },
+    {
+        id: 10,
+        price: 26,
+        photos: [
+            "3.jpg",
+        ],
+    },
+    {
+        id: 8,
+        price: 78,
+    },
+];
+function lengthArr(arr) {
+    if (arr.length >= 1) {
+        return true
+    }
+    return false
+}
+
+const productsWithPhoto = productsTaskFour.filter((product) => {
+    if (product.photos) {
+        if (lengthArr(product.photos)) {
+            return true
+        }
+    }
+    return false
+
+});
+console.log(productsWithPhoto);
+
 // **Задание 5**
 // Дано 2 массива
-// const en = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
-// const ru = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"];
 
+console.log('Задача 5, вариант 1:');
 
+const en = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+const ru = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"];
+
+if (en.length !== ru.length) {
+    console.log("Длины массивов не совпадают");
+} else {
+    const result = {};
+    for (let i = 0; i < en.length; i++) {
+        result[en[i]] = ru[i];
+    }
+    console.log(result);
+}
+
+console.log('Задача 5, вариант 2:');
+
+function createObject(keys, values) {
+    let result = {};
+    let length = Math.min(keys.length, values.length);
+    for (let i = 0; i < length; i++) {
+        result[keys[i]] = values[i];
+    }
+    return result;
+}
+
+let result2 = createObject(en, ru);
+console.log(result2);
 
 // Вам необходимо объединить 2 этих массива, чтобы значения первого массива были ключами, а значения второго массива — значениями.
-
