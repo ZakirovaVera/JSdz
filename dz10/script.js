@@ -87,9 +87,8 @@ console.log(products);
 
 // Задание 4
 // 1. Необходимо вывести в консоль массив продуктов в котором есть хоть одна фотография используя метод filter.Исходные данные - массив products.
-// 2. Необходимо отсортировать массив products используя метод sort по цене, начиная с самой маленькой, заканчивая самой большой ценой, после чего вывести отсортированный массив в консоль.
 
-console.log('Задача 4:');
+console.log('Задача 4_1:');
 
 const productsTaskFour = [
     {
@@ -117,6 +116,7 @@ const productsTaskFour = [
         price: 78,
     },
 ];
+
 function lengthArr(arr) {
     if (arr.length >= 1) {
         return true
@@ -134,6 +134,13 @@ const productsWithPhoto = productsTaskFour.filter((product) => {
 
 });
 console.log(productsWithPhoto);
+
+// 2. Необходимо отсортировать массив products используя метод sort по цене, начиная с самой маленькой, заканчивая самой большой ценой, после чего вывести отсортированный массив в консоль.
+
+console.log('Задача 4_2:');
+
+productsTaskFour.sort((a, b) => a.price - b.price);
+console.log(productsTaskFour);
 
 // **Задание 5**
 // Дано 2 массива
