@@ -19,15 +19,12 @@ function getUserData(ID) {
             if (result.length < 1) {
                 throw new Error('Пользователь не найден.');
             }
-            if (result.length > 1) {
-                throw new Error('Пользователей больше одного.');
-            }
             console.log(result[0]);
         })
         .catch(error => console.log(error));
 }
 
-getUserData(-1);
+getUserData(2);
 
 // Задание 2. Отправка данных на сервер.
 
@@ -50,4 +47,34 @@ getUserData(-1);
 //   });
 // saveUserData использует fetch для отправки данных о пользователе на удаленный сервер для сохранения. Она отправляет POST-запрос на URL-адрес /api/users с указанием типа содержимого application/json и сериализует объект с данными о пользователе в JSON-строку с помощью JSON.stringify(). Если запрос успешен (с кодом 200), функция разрешает промис. Если запрос неуспешен, функция отклоняет промис с сообщением об ошибке.
 
-// Работа должна быть выполнена с API: https://reqres.in/
+// Работа должна быть выполнена с API: 'https://reqres.in/api/users'
+const user = {
+    name: "John Doe",
+    job: "unknown",
+};
+
+function saveUserData(user) {
+    fetch('https://reqres.in/api/users', {
+        method: 'POST', // Здесь так же могут быть GET, PUT, DELETE
+        body: JSON.stringify(user), // Тело запроса в JSON-формате
+        headers: {
+            // Добавляем необходимые заголовки
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then((data) => {
+            console.log(data);
+        })
+        .then(() => {
+            console.log('User data saved successfully');
+        })
+        .catch(error => {
+            console.log(error.message);
+        });
+}
+saveUserData(user);
